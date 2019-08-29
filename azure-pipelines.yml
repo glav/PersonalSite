@@ -63,7 +63,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Infra Files to: $(Pipeline.Workspace)/infra'
   inputs:
-    SourceFolder: '$(build.sourcesdirectory)/Infrastructure'
+    SourceFolder: '$(build.sourcesdirectory)/infrastructure'
     Contents: '**/*'
     TargetFolder: '$(Pipeline.Workspace)/deployartifacts/infra'
   condition: succeeded()
