@@ -53,7 +53,7 @@ steps:
 - task: ArchiveFiles@2
   displayName: 'Copy development front end build into appdrop glavsite-dev.$(Build.BuildId).zip'
   inputs:
-    rootFolderOrFile: 'FrontEnds/participants/build'
+    rootFolderOrFile: 'glavsite/build'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Pipeline.Workspace)/deployartifacts/appdrop/glavsite-dev.$(Build.BuildId).zip'
