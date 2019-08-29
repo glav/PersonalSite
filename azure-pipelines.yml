@@ -38,9 +38,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      remove-item FrontEnds/participants/.env.production
+      remove-item glavsite/.env.production
       
-      rename-item FrontEnds/participants/.env.development .env.production
+      rename-item glavsite/.env.development .env.production
 
 - task: Npm@1
   displayName: 'Perform production build with development environment variables'
