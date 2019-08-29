@@ -1,0 +1,74 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: Npm@1
+  displayName: 'NPM install of Monkey magic'
+  inputs:
+    command: 'install'
+    workingDir: 'glavsite'
+  condition: succeeded()
+
+- task: Npm@1
+  displayName: 'Perform production build with production environment variables'
+  inputs:
+    command: 'custom'
+    workingDir: 'glavsite'
+    customCommand: 'run build'
+  condition: succeeded()
+
+- task: ArchiveFiles@2
+  displayName: 'Copy production front end build into appdrop as glavsite-prod.$(Build.BuildId).zip'
+  inputs:
+    rootFolderOrFile: 'glavsite/build'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Pipeline.Workspace)/deployartifacts/appdrop/glavsite-prod.$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  condition: succeeded()
+
+- task: PowerShell@2
+  displayName: 'Substitute devlopment overwriting production environment variables'
+  inputs:
+    targetType: 'inline'
+    script: |
+      remove-item FrontEnds/participants/.env.production
+      
+      rename-item FrontEnds/participants/.env.development .env.production
+
+- task: Npm@1
+  displayName: 'Perform production build with development environment variables'
+  inputs:
+    command: 'custom'
+    workingDir: 'glavsite'
+    customCommand: 'run build'
+  condition: succeeded()
+
+- task: ArchiveFiles@2
+  displayName: 'Copy development front end build into appdrop glavsite-dev.$(Build.BuildId).zip'
+  inputs:
+    rootFolderOrFile: 'FrontEnds/participants/build'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Pipeline.Workspace)/deployartifacts/appdrop/glavsite-dev.$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  condition: succeeded()
+
+- task: CopyFiles@2
+  displayName: 'Copy Infra Files to: $(Pipeline.Workspace)/infra'
+  inputs:
+    SourceFolder: '$(build.sourcesdirectory)/Infrastructure'
+    Contents: '**/*'
+    TargetFolder: '$(Pipeline.Workspace)/deployartifacts/infra'
+  condition: succeeded()
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)/deployartifacts'
+    artifact: 'artifacts'
