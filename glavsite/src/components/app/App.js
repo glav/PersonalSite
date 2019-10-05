@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from '../header/header'
-import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+import Nav from '../nav/nav';
 
 function App() {
-  return (
-    <Header />
-  );
+    return (
+        <Nav />
+    );
 }
 
 export default App;
