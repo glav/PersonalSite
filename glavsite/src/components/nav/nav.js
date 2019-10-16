@@ -10,7 +10,6 @@ class Nav extends React.Component {
     }
 
     toggleOpenState() {
-        console.log('toggle');
         this.setState({ openState: !this.state.openState });
     };
 

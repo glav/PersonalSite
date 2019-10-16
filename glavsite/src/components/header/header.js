@@ -70,41 +70,36 @@ export default function Header(props) {
     const classes = useStyles();
     const theme = useTheme();
 
-    console.log(props);
-
-        return (
-            <AppBar
-                position="fixed"
-                className={classes.appBar}
-            >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={props.toggleOpenState}
-                        edge="start"
-                        className={clsx(classes.menuButton, {
-                            [classes.hide]: props.openState
-                        })}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={props.toggleOpenState}
-                        edge="start"
-                        className={clsx(classes.menuButton, {
-                            [classes.hide]: !props.openState
-                        })}
-                    >
-                        <MenuOpenIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Glavs place
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        );
+    return (
+        <AppBar
+            position="fixed"
+            className={classes.appBar}
+        >
+            <Toolbar>
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={props.toggleOpenState}
+                    edge="start"
+                    className={clsx(classes.menuButton, {
+                        [classes.hide]: props.openState
+                    })}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={props.toggleOpenState}
+                    edge="start"
+                    className={clsx(classes.menuButton, {
+                        [classes.hide]: !props.openState
+                    })}
+                >
+                    <MenuOpenIcon />
+                </IconButton>
+            </Toolbar>
+        </AppBar>
+    );
 
 };

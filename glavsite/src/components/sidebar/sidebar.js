@@ -16,9 +16,18 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import FaceIcon from '@material-ui/icons/Face';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
+import HomeIcon from '@material-ui/icons/Home';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import './sidebar.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -83,12 +92,19 @@ export default function Sidebar(props) {
         >
             <div className={classes.toolbar} />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? 'I' : 'M'}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key='h' component={props => <Link to="/" {...props} />}>
+                    <ListItemIcon><HomeIcon /></ListItemIcon>
+                    <ListItemText primary='Home' />
+                </ListItem>
+                <ListItem button key='a' component={props => <Link to='/blog' {...props} />}>
+                    <ListItemIcon><FaceIcon /></ListItemIcon>
+                    <ListItemText primary='About me' />
+                </ListItem>
+                <ListItem button key='Contact me'>
+                    <ListItemIcon><ContactMailIcon /></ListItemIcon>
+                    <ListItemText primary='Contact me' />
+                </ListItem>
+                <Link to='/blog'>Test link</Link>
             </List>
             <Divider />
         </Drawer>
