@@ -1,7 +1,8 @@
 import React from 'react';
 import Nav from '../nav/nav';
 import Blog from '../Content/blog';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Homepage from '../Content/homepage/homepage';
 
 import {
     BrowserRouter as Router,
@@ -28,8 +29,11 @@ function App() {
                     <Route path="/blog">
                         <Blog />
                     </Route>
+                    <Route path="/contact">
+                        <h3>Contact</h3>
+                    </Route>
                     <Route exact path="/">
-                        <h2>Home</h2>
+                        <Homepage />
                     </Route>
                 </Switch>
             </main>
