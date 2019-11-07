@@ -33,7 +33,7 @@ function App() {
                         <h3>Contact</h3>
                     </Route>
                     <Route exact path="/">
-                        <Homepage />
+                        <Homepage order={[1, 2, 3, 4]} />
                     </Route>
                 </Switch>
             </main>
