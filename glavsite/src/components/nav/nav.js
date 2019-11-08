@@ -16,7 +16,7 @@ class Nav extends React.Component {
     render() {
         return (
             <div>
-                <Header toggleOpenState={this.toggleOpenState} />
+                <Header toggleOpenState={this.toggleOpenState}/>
                 <Sidebar openState={this.state.openState} />
             </div>
         )

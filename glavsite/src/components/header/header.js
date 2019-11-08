@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
+import "./header.css";
 
 const drawerWidth = 200;
 
@@ -63,7 +64,7 @@ export default function Header(props) {
     return (
         <AppBar
             position="fixed"
-            className={classes.appBar}
+            className={clsx(classes.appBar,"header-gradient")}
         >
             <Toolbar>
                 <IconButton
