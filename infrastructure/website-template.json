@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "websitesSkuTier": {
+        "type": "string",
+        "allowedValues": [
+          "Free",
+          "Shared",
+          "Basic",
+          "Standard"
+        ],
+        "defaultValue": "Free"
+      },
+      "websitesSkuName": {
+        "type": "string",
+        "defaultValue":"F1"
+      },
+      "websiteName": {
+        "type": "string"
+      }
+    },
+    "variables": {
+      "websitePlanName": "[concat(parameters('websiteName'), 'plan')]",
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2018-02-01",
+        "name": "[variables('websitePlanName')]",
+        "location": "[resourceGroup().location]",
+        "sku": {
+          "tier": "[parameters('websitesSkuTier')]",
+          "name": "[parameters('websitesSkuName')]"
+        },
+        "kind": "app",
+        "properties": {
+          "name": "[variables('websitePlanName')]"
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2018-11-01",
+        "name": "[parameters('websiteName')]",
+        "location": "[resourceGroup().location]",
+        "kind": "app",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', variables('websitePlanName'))]"
+        ],
+        "properties": {
+          "enabled": true,
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('websitePlanName'))]",
+          "reserved": false,
+          "scmSiteAlsoStopped": false,
+          "clientAffinityEnabled": true,
+          "clientCertEnabled": false,
+          "hostNamesDisabled": false,
+          "containerSize": 0,
+          "dailyMemoryTimeQuota": 0,
+          "httpsOnly": true,
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "TBA"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "somevalue": {
+          "value": "nothing-yet",
+          "type": "string"    
+      }
+    }
+  }

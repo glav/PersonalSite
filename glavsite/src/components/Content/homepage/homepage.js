@@ -12,7 +12,6 @@ const images = [image1, image2, image3, image4];
 
 export default function Homepage(props) {
 
-    console.log(props);
     return (
         <Grid container item alignItems="stretch" direction="row" justify="center" spacing={2}>
 
