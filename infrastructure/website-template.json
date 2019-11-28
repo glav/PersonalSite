@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "websitesSkuTier": {
+      "websiteSkuTier": {
         "type": "string",
         "allowedValues": [
           "Free",
@@ -12,7 +12,7 @@
         ],
         "defaultValue": "Free"
       },
-      "websitesSkuName": {
+      "websiteSkuName": {
         "type": "string",
         "defaultValue":"F1"
       },
@@ -30,8 +30,8 @@
         "name": "[variables('websitePlanName')]",
         "location": "[resourceGroup().location]",
         "sku": {
-          "tier": "[parameters('websitesSkuTier')]",
-          "name": "[parameters('websitesSkuName')]"
+          "tier": "[parameters('websiteSkuTier')]",
+          "name": "[parameters('websiteSkuName')]"
         },
         "kind": "app",
         "properties": {

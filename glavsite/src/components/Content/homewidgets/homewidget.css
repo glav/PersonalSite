@@ -1,0 +1,53 @@
+.homeContainer {
+    width: 50%;
+}
+
+.widgetBobble{
+    animation: bobble 2s infinite;
+}
+
+@keyframes bobble {
+    0% {
+        transform: translate3d(0px, 40px, 0px);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: translate3d(0px, 50px, 0px);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: translate3d(0px, 40px, 0px);
+    }
+}
+
+.widgetJiggle {
+    animation: jiggle .3s infinite;
+}
+
+@keyframes jiggle {
+    0% {
+        transform: translate3d(5px, 8px, 0px);
+        animation-timing-function: ease-in;
+    }
+
+    25% {
+        transform: translate3d(8px, 3px, 0px);
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        transform: translate3d(9px, 6px, 0px);
+        animation-timing-function: ease-in;
+    }
+
+    75% {
+        transform: translate3d(6px, 9px, 0px);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: translate3d(4px, 7px, 0px);
+    }
+}

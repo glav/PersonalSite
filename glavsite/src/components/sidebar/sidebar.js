@@ -62,6 +62,10 @@ export default function Sidebar(props) {
 
     const classes = useStyles();
 
+    const homeLink = React.forwardRef((props, ref) => <Link to="/" {...props} ref={ref} />);
+    const blogLink = React.forwardRef((props, ref) => <Link to="/blog" {...props} ref={ref} />);
+    const contactLink = React.forwardRef((props, ref) => <Link to="/contact" {...props} ref={ref} />);
+
     return (
         <Drawer
             className={classes.drawer}
@@ -75,19 +79,19 @@ export default function Sidebar(props) {
         >
             <div className={classes.toolbar} />
             <List>
-                <ListItem button key='h' component={props => <Link to="/" {...props} />}>
+                <ListItem button key='h' component={homeLink}>
                     <ListItemIcon><HomeIcon /></ListItemIcon>
                     <ListItemText primary='Home' />
                 </ListItem>
-                <ListItem button key='a' component={props => <Link to='/blog' {...props} />}>
+                <ListItem button key='a' component={blogLink}>
                     <ListItemIcon><FaceIcon /></ListItemIcon>
                     <ListItemText primary='About me' />
                 </ListItem>
-                <ListItem button key='Contact me' component={props => <Link to='/contact' {...props} />}>
+                <ListItem button key='Contact me' component={contactLink}>
                     <ListItemIcon><ContactMailIcon /></ListItemIcon>
                     <ListItemText primary='Contact me' />
                 </ListItem>
-                
+
             </List>
             <Divider />
         </Drawer>
