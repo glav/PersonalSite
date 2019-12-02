@@ -2,52 +2,112 @@
     width: 50%;
 }
 
-.widgetBobble{
-    animation: bobble 2s infinite;
+.widgetBobble1{
+    animation: bobble1 .5s 4;
 }
 
-@keyframes bobble {
+@keyframes bobble1 {
     0% {
-        transform: translate3d(0px, 40px, 0px);
+        transform: translate3d(0px, 0px, 0px);
         animation-timing-function: ease-in;
     }
 
     50% {
-        transform: translate3d(0px, 50px, 0px);
+        transform: translate3d(3px, 4px, 0px);
         animation-timing-function: ease-out;
     }
 
     100% {
-        transform: translate3d(0px, 40px, 0px);
+        transform: translate3d(2px, 2px, 0px);
     }
 }
 
-.widgetJiggle {
-    animation: jiggle .3s infinite;
+.widgetJiggle1 {
+    animation: jiggle1 .3s 6;
 }
 
-@keyframes jiggle {
+@keyframes jiggle1 {
     0% {
-        transform: translate3d(5px, 8px, 0px);
+        transform: translate3d(5px, 3px, 0px);
         animation-timing-function: ease-in;
     }
 
     25% {
-        transform: translate3d(8px, 3px, 0px);
+        transform: translate3d(8px, 6px, 0px);
         animation-timing-function: ease-out;
     }
 
     50% {
-        transform: translate3d(9px, 6px, 0px);
+        transform: translate3d(7px, 3px, 0px);
         animation-timing-function: ease-in;
     }
 
     75% {
-        transform: translate3d(6px, 9px, 0px);
+        transform: translate3d(4px, 5px, 0px);
         animation-timing-function: ease-out;
     }
 
     100% {
-        transform: translate3d(4px, 7px, 0px);
+        transform: translate3d(2px, 7px, 0px);
+    }
+}
+
+.widgetJiggle2 {
+    animation: jiggle2 .5s 5;
+}
+
+@keyframes jiggle2 {
+    0% {
+        transform: translate3d(2px, 1px, 0px);
+        animation-timing-function: ease-in;
+    }
+
+    25% {
+        transform: translate3d(4px, 3px, 0px);
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        transform: translate3d(2px, 1px, 0px);
+        animation-timing-function: ease-in;
+    }
+
+    75% {
+        transform: translate3d(6px, 4px, 0px);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: translate3d(2px, 2px, 0px);
+    }
+}
+
+.pulse {
+    animation: pulse .5s 7;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        animation-timing-function: ease-in;
+    }
+
+    25% {
+        transform: scale(1.05);
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        transform: scale(1);
+        animation-timing-function: ease-in;
+    }
+
+    75% {
+        transform: scale(0.95);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

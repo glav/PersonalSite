@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import Homewidget from '../homewidgets/homewidget';
+import Homeblurb from '../homeblurb/homeblurb';
 import './homepage.css';
 import Grid from '@material-ui/core/Grid';
-import image1 from '../homewidgets/sample-image1.png';
-import image2 from '../homewidgets/sample-image2.jpg';
-import image3 from '../homewidgets/sample-image3.jpg';
-import image4 from '../homewidgets/sample-image4.jpg';
+import image1 from '../homewidgets/me1-small.jpg';
+import image2 from '../homewidgets/me2-small.jpg';
+import image3 from '../homewidgets/me3-small.jpg';
+import image4 from '../homewidgets/me4-small.jpg';
 
 
 const images = [image1, image2, image3, image4];
-const stylesToUse = ['', 'widgetJiggle', '','widgetBobble','']
+const stylesToUse = ['', 'widgetJiggle1', '', 'widgetBobble1', '', 'widgetJiggle2', '', 'pulse', '']
 
 export default function Homepage(props) {
 
@@ -26,13 +27,18 @@ export default function Homepage(props) {
         setStyle(newStyles);
     }, 5000);
     return (
-        <Grid container item alignItems="stretch" direction="row" justify="center" spacing={2}>
+        <Grid container direction="row" alignContent="flex-start" spacing={3} >
+            <Grid item xs="8">
+                <Homeblurb />
+            </Grid>
+            <Grid container item xs="4" direction="column" spacing={6} >
 
-            {images.map((img, index) => (
-                <Grid item key={index}>
-                    <Homewidget image={img} imageClass={style[index]} />
-                </Grid>
-            ))}
+                {images.map((img, index) => (
+                    <Grid item key={index}>
+                        <Homewidget image={img} imageClass={style[index]} />
+                    </Grid>
+                ))}
+            </Grid>
         </Grid>
     );
 }
