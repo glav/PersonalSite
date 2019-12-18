@@ -25,7 +25,7 @@ export default function Homepage(props) {
             newStyles.push(getStyleToUse())
         }
         setStyle(newStyles);
-    }, 5000);
+    }, 4000);
     return (
         <Grid container direction="row" alignContent="flex-start" spacing={3} >
             <Grid item xs="8">

@@ -21,7 +21,7 @@
       }
     },
     "variables": {
-      "websitePlanName": "[concat(parameters('websiteName'), 'plan')]",
+      "websitePlanName": "[concat(parameters('websiteName'), 'plan')]"
     },
     "resources": [
       {
