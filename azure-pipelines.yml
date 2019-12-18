@@ -4,6 +4,7 @@ trigger:
 
 variables:
   buildConfiguration: 'Release'
+  resourceGroupName: 'PersonalSite'
 
 stages:
 - stage:
@@ -84,7 +85,7 @@ stages:
         azureResourceManagerConnection: 'PersonalSiteConnection'
         subscriptionId: 'd6876356-8975-4384-bbec-4be79f7fe030'
         action: 'Create Or Update Resource Group'
-        resourceGroupName: 'PersonalSite'
+        resourceGroupName: '$(resourceGroupName)'
         location: 'Australia East'
         templateLocation: 'Linked artifact'
         csmFile: '$(Pipeline.Workspace)/deployartifacts/infra/website-template.json'
