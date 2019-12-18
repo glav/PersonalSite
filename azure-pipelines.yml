@@ -6,10 +6,13 @@ variables:
   buildConfiguration: 'Release'
   resourceGroupName: 'PersonalSite'
   websiteName: 'glavspersonalsite'
+  location: 'Australia East'
 
 stages:
 - stage:
   displayName: "Build stage"
+  variables:
+    devsiteName: $[format('{0}{1}', variables['websiteName'], 'dev')]
   jobs:
   - job:
     displayName: "Build job"
@@ -87,8 +90,16 @@ stages:
         subscriptionId: 'd6876356-8975-4384-bbec-4be79f7fe030'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
-        location: 'Australia East'
+        location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: '$(Pipeline.Workspace)/deployartifacts/infra/website-template.json'
         csmParametersFile: '$(Pipeline.Workspace)/deployartifacts/infra/website-parameters.json'
+        overrideParameters: '-websiteName $(devsiteName)'
         deploymentMode: 'Incremental'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'PersonalSiteConnection'
+        appType: 'webApp'
+        WebAppName: '$(devsiteName)'
+        packageForLinux: '$(Pipeline.Workspace)/deployartifacts/appdrop/**/*.zip'
