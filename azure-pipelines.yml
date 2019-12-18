@@ -102,4 +102,4 @@ stages:
         azureSubscription: 'PersonalSiteConnection'
         appType: 'webApp'
         WebAppName: '$(devsiteName)'
-        packageForLinux: '$(Pipeline.Workspace)/deployartifacts/appdrop/**/*.zip'
+        packageForLinux: '$(Pipeline.Workspace)/deployartifacts/appdrop/**/glavsite-*.zip'
