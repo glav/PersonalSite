@@ -7,8 +7,7 @@ import Homepage from '../Content/homepage/homepage';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({

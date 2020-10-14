@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import { Typography } from '@material-ui/core';
 
 
@@ -20,7 +20,7 @@ export default function Homeblurb(props) {
             <h4>You want to know more?</h4>
             <p>Rightio then, listed below are links to some contact myself, or find out a bit more:</p>
             <ul>
-                <li><a href="https://weblogs.asp.net/pglavich" alt="Blog" target="_blank">Blog</a></li>
+                <li><a href="https://weblogs.asp.net/pglavich" alt="Blog" target="_blank" rel="noopener noreferrer">Blog</a></li>
             </ul>
 
             <p>What you will find is some basic information and links to where the real stuff is.</p>
