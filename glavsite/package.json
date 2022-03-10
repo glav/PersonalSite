@@ -5,10 +5,15 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "har-validator": "^5.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.0"
+    "react-scripts": "^5.0.0",
+    "request": "^2.88.2",
+    "svgo": "^2.8.0",
+    "tar": "^6.1.11",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
