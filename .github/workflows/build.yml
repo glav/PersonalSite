@@ -18,7 +18,7 @@ jobs:
         shell: bash
         working-directory: glavsite
 
-    name: Build and Deploy Job
+    name: Build and test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
