@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../nav/nav';
 import Blog from '../Content/blog';
+import Contact from '../Content/contact';
 import { makeStyles } from '@material-ui/core/styles';
 import Homepage from '../Content/homepage/homepage';
 
@@ -28,7 +29,7 @@ function App() {
                     <Route path="/blog" element={<Blog />}>
                         
                     </Route>
-                    <Route path="/contact">
+                    <Route path="/contact" element={<Contact />}>
                         
                     </Route>
                     <Route path="/" element={<Homepage />}>
