@@ -6,7 +6,7 @@ import Homepage from '../Content/homepage/homepage';
 
 import {
     BrowserRouter as Router,
-    Router,
+    Routes,
     Route
 } from "react-router-dom";
 
