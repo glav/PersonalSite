@@ -6,7 +6,7 @@ import Homepage from '../Content/homepage/homepage';
 
 import {
     BrowserRouter as Router,
-    Routes,
+    Router,
     Route
 } from "react-router-dom";
 
@@ -25,10 +25,14 @@ function App() {
             <Nav />
             <main className={classes.content}>
                 <Routes>
-                    <Route path="/blog" element={<Blog />}>
+                    <Route path="/blog">
+                        <Blog />
                     </Route>
-                    <Route path="/" element={<Homepage />}>
-                        
+                    <Route path="/contact">
+                        <h3>Contact</h3>
+                    </Route>
+                    <Route path="/">
+                        <Homepage order={[1, 2, 3, 4]} />
                     </Route>
                 </Routes>
             </main>
