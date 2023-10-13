@@ -26,15 +26,6 @@ export default function Homeblurb(props) {
 
             <p>What you will find is some basic information and links to where the real stuff is.</p>
 
-            <p>And some more content to display as text, And some more content to display as text
-                    , And some more content to display as text, And some more content to display as text,
-                    And some more content to display as text</p>
-
-            <p>Here is come content</p>
-
-            <p>And some more content to display as text, And some more content to display as text
-                    , And some more content to display as text, And some more content to display as text,
-                    And some more content to display as text</p>
         </Typography>
     );
 }
